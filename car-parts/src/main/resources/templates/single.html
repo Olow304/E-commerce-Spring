@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="end" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header/header :: header"/>
+<body>
+<!-- header -->
+<div th:replace="header/header :: navbar"/>
+<!---->
+<div class="single-sec">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li>Products</li>
+            <li class="active" th:text="${product.title}"></li>
+        </ol>
+        <!-- start content -->
+        <!--<form th:action="@{/shoppingCart/addItem}" method="post">-->
+        <input hidden="hidden" id="id" th:value="${product}"/>
+        <div class="col-md-9 det">
+            <div class="single_left">
+                <div class="grid images_3_of_2">
+                    <ul id="etalage">
+                        <li>
+                            <a href="optionallink.html">
+                                <img class="etalage_source_image"
+                                     th:src="#{adminPath}+@{/product_images/}+${product.id}+'.jpg'" title=""/>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="single-right">
+                <h3 th:text="${product.title}"></h3>
+                <div class="id">
+                    <h4>Seller: <p th:text="${product.publisher}"></p></h4>
+                </div>
+                <div class="cost">
+                    <div class="prdt-cost">
+                        <ul>
+                            <li>BEFORE:
+                                <del>USD 50</del>
+                            </li>
+                            <li th:text="${'IN STOCK: ' + product.inStockNumber}"></li>
+                            <li>Sellling Price:</li>
+                            <li class="active" th:text="${'$ '+ product.listPrice}"></li>
+                            <span>Quantity: <select name="qty">
+                                    <option th:each="qty : ${qtyList}" th:value="${qty}" th:text="${qty}"></option>
+                                </select></span>
+                            <br>
+                            <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
+                               data-target="#modalContactForm">Get price</a>
+                            <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <form th:action="@{/getPriceByEmail}" method="post">
+                                        
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title w-100 font-weight-bold">Find more about this product.</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body mx-3">
+                                                <div class="md-form mb-5">
+                                                    <i class="fas fa-user prefix grey-text"></i>
+                                                    <label>product name: </label>
+                                                    <input type="text" id="form34" class="form-control validate"
+                                                           style="width: 100% !important;" name="name"
+                                                           th:value="${product.title}" required="required">
+                                                </div>
+                                                
+                                                <div class="md-form mb-5">
+                                                    <i class="fas fa-user prefix grey-text"></i>
+                                                    <label>product price: </label>
+                                                    <input type="number" id="form34" class="form-control validate"
+                                                           style="width: 100% !important;" name="price"
+                                                           th:value="${product.listPrice}">
+                                                </div>
+                                                
+                                                <div class="md-form mb-5">
+                                                    <i class="fas fa-user prefix grey-text"></i>
+                                                    <label>Quantity: </label>
+                                                    <select name="qty" class="form-control validate"
+                                                            style="width: 100% !important;">
+                                                        <option th:each="qty : ${qtyList}" th:value="${qty}" th:text="${qty}"></option>
+                                                    </select></span>
+                                                </div>
+                                                
+                                                <div class="md-form mb-5">
+                                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                                    <label>Your email: </label>
+                                                    <input type="email" id="form29" class="form-control validate"
+                                                           placeholder="Email"
+                                                           style="width: 100% !important;" name="email"
+                                                           required="required">
+                                                </div>
+                                                
+                                                <div class="md-form mb-5">
+                                                    <i class="fas fa-tag prefix grey-text"></i>
+                                                    <label>Subject</label>
+                                                    <input type="text" id="form32" class="form-control validate"
+                                                           style="width: 100% !important;" name="subject"
+                                                           placeholder="Subject">
+                                                </div>
+                                                
+                                                <div class="md-form">
+                                                    <i class="fas fa-pencil prefix grey-text"></i>
+                                                    <label>Your message</label>
+                                                    <textarea
+                                                            type="text" id="form8" style="width: 100% !important;"
+                                                            class="md-textarea form-control"
+                                                            placeholder="Write your message here."
+                                                            rows="4" name="msg" required="required"></textarea>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button class="btn btn-unique">Get a Quote <i
+                                                        class="fas fa-paper-plane-o ml-1"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="item-list">
+                    <ul>
+                        <li>More info to come...</li>
+                        <li><a href="#">Click here for more details</a></li>
+                    </ul>
+                </div>
+                <div class="single-bottom1">
+                    <h6>Details</h6>
+                    <p class="prod-desc" th:utext="${product.description}"></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!--</form>-->
+    </div>
+    <div class="clearfix"></div>
+</div>
+</div>
+<!---->
+<div th:replace="header/header :: footer"/>
+<!---->
+</body>
+</html>

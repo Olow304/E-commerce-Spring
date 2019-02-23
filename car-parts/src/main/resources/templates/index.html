@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="end" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header/header :: header"/>
+<body>
+<!-- header -->
+<div th:replace="header/header :: navbar"/>
+<!---->
+<!--<div class="content">-->
+    <!--<div class="container">-->
+        <!--<div class="slider" data-th-each="product : ${productList}">-->
+            <!--<ul class="rslides" id="slider1">-->
+                <!--<li>-->
+                    <!--&lt;!&ndash;<img th:src="#{adminPath}+@{/product_images/}+${product.id}+'.jpg'" class="img-responsive" alt=""/>&ndash;&gt;-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!---->
+<div class="new">
+    <div class="container">
+        <h3>specially designed for Furnyish</h3>
+        <div class="new-products">
+            <div class="new-items">
+                <div class="item1" data-th-each="product : ${productfour}">
+                    <a href="products.html">
+                        <img th:src="#{adminPath}+@{/product_images/}+'4.jpg'" class="img-responsive" alt=""/>
+                    </a>
+                    <div class="item-info">
+                        <h4><a href="products.html" th:text="${product.title}"></a></h4>
+                        <span th:text="${'SELLER: ' + product.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                </div>
+                <div class="item4" data-th-each="psix : ${productsix}">
+                    <img th:src="#{adminPath}+@{/product_images/}+'6.jpg'" class="img-responsive" alt=""/>
+                    <div class="item-info4">
+                        <h4><a href="products.html" th:text="${psix.title}"></a></h4>
+                        <span th:text="${'SELLER: ' + psix.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="new-items new_middle" data-th-each="ptwo : ${producttwo}">
+                <div class="item2">
+                    <div class="item-info2">
+                        <h4><a href="products.html" th:text="${ptwo.title}"></a></h4>
+                        <span th:text="${'SELLER: ' + ptwo.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                    <a href="products.html">
+                        <img th:src="#{adminPath}+@{/product_images/}+'2.jpg'" class="img-responsive" alt=""/>
+                    </a>
+                </div>
+                <div class="item5" data-th-each="pthree : ${productthree}">
+                    <a href="products.html">
+                        <img th:src="#{adminPath}+@{/product_images/}+'3.jpg'" class="img-responsive" alt=""/>
+                    </a>
+                    <div class="item-info5">
+                        <h4><a href="products.html" th:text="${pthree.title}"></a></h4>
+                        <span th:text="${'SELLER: ' + pthree.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="new-items new_last" >
+                <div class="item3" data-th-each="peleven : ${producteleven}">
+                    <a href="products.html">
+                        <img th:src="#{adminPath}+@{/product_images/}+'11.jpg'" class="img-responsive" alt=""/>
+                    </a>                    <div class="item-info3">
+                    <h4><a href="products.html" th:text="${peleven.title}"></a></h4>
+                    <span th:text="${'SELLER: ' + peleven.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                </div>
+                <div class="item6" data-th-each="pten : ${productten}">
+                    <a href="products.html">
+                        <img th:src="#{adminPath}+@{/product_images/}+'10.jpg'" class="img-responsive" alt=""/>
+                    </a>
+                    <div class="item-info6">
+                        <h4><a href="products.html" th:text="${pten.title}"></a></h4>
+                        <span th:text="${'SELLER: ' + pten.publisher}"></span>
+                        <a href="single.html">Buy Now</a>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="top-sellers">
+    <div class="container">
+        <h3>TOP - SELLERS</h3>
+        <div class="seller-grids">
+            <div class="col-md-3 seller-grid" data-th-each="subproduct3 : ${productnine}">
+                <a href="products.html">
+                    <img th:src="#{adminPath}+@{/product_images/}+'9.jpg'" class="img-responsive" alt=""/>
+                </a>
+                <h4><a href="products.html" th:text="${subproduct3.title}" ></a></h4>
+                <span th:text="${'SELLER: ' + subproduct3.publisher}"></span>
+                <p style="color: red" th:text="'$' + ${subproduct3.listPrice}"></p>
+            </div>
+            <div class="col-md-3 seller-grid" data-th-each="subproduct1 : ${productfour}">
+                <a href="products.html">
+                    <img th:src="#{adminPath}+@{/product_images/}+'4.jpg'" class="img-responsive" alt=""/>
+                </a>
+                <h4><a href="products.html" th:text="${subproduct1.title}" ></a></h4>
+                <span th:text="${'SELLER: ' + subproduct1.publisher}"></span>
+                <p style="color: red" th:text="'$' + ${subproduct1.listPrice}"></p>
+            </div>
+            <div class="col-md-3 seller-grid" data-th-each="subproduct2 : ${producteleven}">
+                <a href="products.html">
+                    <img th:src="#{adminPath}+@{/product_images/}+'11.jpg'" class="img-responsive" alt=""/>
+                </a>
+                <h4><a href="products.html" th:text="${subproduct2.title}" ></a></h4>
+                <span th:text="${'SELLER: ' + subproduct2.publisher}"></span>
+                <p style="color: red" th:text="'$' + ${subproduct2.listPrice}"></p>
+            </div>
+            <div class="col-md-3 seller-grid" data-th-each="subproduct4 : ${productwelve}">
+                <a href="products.html">
+                    <img th:src="#{adminPath}+@{/product_images/}+'12.jpg'" class="img-responsive" alt=""/>
+                </a>
+                <h4><a href="products.html" th:text="${subproduct4.title}" ></a></h4>
+                <span th:text="${'SELLER: ' + subproduct4.publisher}"></span>
+                <p style="color: red" th:text="'$' + ${subproduct4.listPrice}"></p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!---->
+<div class="recommendation">
+    <div class="container">
+        <div class="recmnd-head">
+            <h3>RECOMMENDATIONS FOR YOU</h3>
+        </div>
+        <div class="bikes-grids">
+            <ul id="flexiselDemo1">
+                <li data-th-each="allproducts : ${productList}" >
+                    <a href="products.html">
+                        <img
+                             th:src="#{adminPath}+@{/product_images/}+${allproducts.id}+'.jpg'" class="img-responsive"
+                             alt=""/>
+                    </a>
+                    <h4><a href="products.html" th:text="${allproducts.title}"></a></h4>
+                    <p style="color: red" th:text="'$' + ${allproducts.listPrice}"></p>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $("#flexiselDemo1").flexisel({
+                        visibleItems: 5,
+                        animationSpeed: 1000,
+                        autoPlay: true,
+                        autoPlaySpeed: 3000,
+                        pauseOnHover: true,
+                        enableResponsiveBreakpoints: true,
+                        responsiveBreakpoints: {
+                            portrait: {
+                                changePoint: 480,
+                                visibleItems: 1
+                            },
+                            landscape: {
+                                changePoint: 640,
+                                visibleItems: 2
+                            },
+                            tablet: {
+                                changePoint: 768,
+                                visibleItems: 3
+                            }
+                        }
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+        </div>
+    </div>
+</div>
+<!---->
+<div th:replace="header/header :: footer"/>
+<!---->
+</body>
+</html>

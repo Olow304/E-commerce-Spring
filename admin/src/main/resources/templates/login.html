@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="end" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header/header :: header"/>
+<meta charset="UTF-8">
+<title>Admin Area</title>
+<body>
+<div th:replace="header/header :: noLogin"/>
+<div class="contact">
+    <div class="container">
+        <div class="alert alert-warning" role="alert">
+            Please login into your admin account.
+        </div>
+        <div class="contact-head">
+            <h2>Login</h2>
+            <div class="col-md-9 log">
+                <form th:action="@{/login}" method="post">
+                    <label>User Name: </label> <input type="text" name="username" id="username"><br>
+                    <label>Password: </label> <input type="password" name="password" id="password">
+                    <input type="submit" value="Login">
+                    <span th:if="${param.error != null}" style="color: red; font-size: small">Incorrect username or password, try again.</span><br>
+                    <hr>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<div th:replace="header/header :: footer"/>
+</body>
+</html>
