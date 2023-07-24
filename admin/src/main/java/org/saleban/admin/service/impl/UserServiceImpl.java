@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(User user, Set<UserRole> userRoles) throws Exception{
+    public User createUser(User user, Set<UserRole> userRoles) throws Exception {
         User localUser = userRepository.findByUsername(user.getUsername());
         if(localUser != null){
             throw new Exception("User already exists");
